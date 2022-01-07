@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% extends 'layout.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+{% block content %}
+<br><br>
+<table border="1px" class="center" style="text-align:center">
+    <tr style="background-color:black;color:white">
+        <th>PROFESSOR_NAME</th>
+        <th>SUBJECT</th>
+        <th>SUBJECT</th>
+        <th>DELETE</th>
+        <th>UPDATE</th>
+    </tr>
+    {% for pro in prof %}
+    <tr style="background-color:silver">
+        <td>{{pro.prof_name}}</td>
+        <td>{{pro.sub}}</td>
+        <td>{% for p in pro.pid.all %}
+            ** {{p.dep_name}}
+            {% endfor %}</td>
+
+
+         <td><a href="{% url 'del_pro' pro.id %}"><button class="btn btn-danger">DELETE</button></a></td>
+         <td><a href="{% url 'upd_pro' pro.id %}"><button class="btn btn-success">UPDATE</button></a></td>
+
+
+        {% endfor %}
+    </tr>
+
+</table>
+<div style="text-align:center">
+<br><a href="{% url 'add_pro' %}"><button>ADD PROFESSOR</button></a></div>
+
+{% endblock %}
+</body>
+
+</html>

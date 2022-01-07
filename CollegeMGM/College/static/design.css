@@ -1,0 +1,31 @@
+.center{
+margin-left:auto;
+margin-right:auto;
+}
+table{
+width:100%;
+text-align:center;
+}
+
+.mynavbar
+{
+background-color:aquamarine;
+list-style-type:none;
+overflow:hidden;
+margin:0;
+
+}
+li
+{
+float:left
+}
+li a{
+padding:15px 25px 15px 1px;
+color:black;
+display:block;
+}
+.authlinks
+{
+float:right;
+
+}

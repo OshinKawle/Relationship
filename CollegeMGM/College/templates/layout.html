@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'design.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <ul class="mynavbar">
+        <li><a href="{% url 'show_stud' %}">SHOW STUDENT</a></li>
+        <li><a href="{% url 'show_dept' %}">SHOW DEPARTMENT</a></li>
+        <li><a href="{% url 'show_prof' %}">SHOW PROFESSOR</a></li>
+
+        <span class="authlinks">
+            <nav class="navbar navbar-light bg-light">
+                <form method="post" class="form-inline">
+                      {% csrf_token %}
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search" name="query">
+                    <button type="submit" class="btn btn-outline-success my-2 my-sm-0" >SEARCH</button>
+                </form>
+</nav>
+        </span>
+
+    </ul>
+    {% block content %}
+    main content
+    {% endblock %}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

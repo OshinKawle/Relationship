@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends 'layout.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% block content %}
+<body><br><br>
+<table border="1px">
+    <tr style="background-color:black;color:white">
+        <th>DEP_ID</th>
+        <th>DEPARTMENT_NAME</th>
+        <th>DELETE</th>
+        <th>UPDATE</th>
+    </tr>
+    {% for dep in dep %}
+    <tr style="background-color:silver">
+        <td>{{dep.did}}</td>
+        <td>{{dep.dep_name}}</td>
+        <td><a href="{% url 'del_dep' dep.did %}"><button class="btn btn-danger">DELETE</button></a></td>
+        <td><a href="{% url 'upd_dep' dep.did %}"><button class="btn btn-success">UPDATE</button></a></td>
+
+
+
+    </tr>
+    {% endfor %}
+</table>
+
+
+</body>
+<div style="text-align:center">
+<br><a href="{% url 'add_dept' %}"><button>ADD DEPARTMENT</button></a></div>
+
+{% endblock %}
+</html>
